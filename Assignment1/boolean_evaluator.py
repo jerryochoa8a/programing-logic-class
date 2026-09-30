@@ -66,29 +66,20 @@ class Or(Binop):
 # 6.) You do not need to write a lot of code; my reference solution is 7 lines long.
 #     If you start needing a lot more code than that, ask for help to make sure
 #     you're still on-track.
+
 def eval_expr(expression):
-    left= False
-    right = False
-    if expression == True: # checking the left/right expression
+    # left= False
+    # right = False
+    if expression == True: # checking the left/right expression bool
         return True
     elif expression == False:
         return False
-    elif isinstance(expression, And): #checking the type of opperatior it has
-        print("-"*20)
-        print(expression)
-        print("CHEAK: ")
-        print(eval_expr(expression.left) and eval_expr(expression.right))
-        print("-"*20)
-
-    # if isinstance(expression, Or):
-    #     print("-"*20)
-    #     print(expression)
-    #     print("ASKING FOR OR")
-    #     print("-"*20)
     
-
-    
-    
+    #checking the type of opperatior it has. then check the left/right bool
+    elif isinstance(expression, And):
+            return(eval_expr(expression.left) and eval_expr(expression.right))
+    elif isinstance(expression, Or):
+            return(eval_expr(expression.left) or eval_expr(expression.right))    
     pass
 
 # tests that evaluate to true
