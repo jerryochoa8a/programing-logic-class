@@ -73,13 +73,11 @@ def eval_expr(expression):
         return True
     elif expression == False:
         return False
-    elif isinstance(expression, And): #checking the type oof opperatior it has
+    elif isinstance(expression, And): #checking the type of opperatior it has
         print("-"*20)
         print(expression)
-        print("ITS ASKING FOR AND")
-        print("CHEAK: "+ eval_expr(expression.left) and eval_expr(expression.right))
-        eval_expr(expression.right)
-        eval_expr(expression.left)
+        print("CHEAK: ")
+        print(eval_expr(expression.left) and eval_expr(expression.right))
         print("-"*20)
 
     # if isinstance(expression, Or):
