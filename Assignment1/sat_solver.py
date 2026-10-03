@@ -180,6 +180,37 @@ def add_literal(immutable_map, variable, boolean):
 #     you're still on-track.
 #
 def solve(goals, literals):
+    # all goals are done
+    if isinstance(goals,Nil):
+        return literals
+    
+    prob1 = goals.head
+    prob2 = goals.tail
+    #check to see if problem can be split into sub problems
+    if isinstance(prob1, Literal):
+        answer = add_literal(literals, prob1.variable, prob1.is_positive)
+
+        if answer is None:
+            return None
+        
+        return solve(prob2, answer)
+
+    # AND Check
+    elif isinstance(prob1, And):
+        bothTrue = Cons( prob1.left, Cons( prob1.right, prob2 ) )
+        return solve(bothTrue, literals)
+
+    # OR Check
+    elif isinstance(prob1, Or):
+        left = solve( Cons( prob1.left, prob2 ), literals )
+        right = solve( Cons(prob1.right, prob2), literals )
+
+        if left is not None:
+            return left
+
+        return right
+
+    
     pass
 
 def solve_one(formula):
