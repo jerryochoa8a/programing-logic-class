@@ -1,0 +1,20 @@
+wsl - to start linux
+
+swipl - to start prolog
+
+*Run the file* 
+?-['2_exercises']
+
+Note: in prolog files cannot start with a number
+so to fix this we put it in '' 
+===========================================
+
+START TO FINNISH
+1) swipl -s 5_exercises.pl
+
+2) test(X).
+
+3) To exit use: halt.
+======================
+
+";" asks for additional awnsers
