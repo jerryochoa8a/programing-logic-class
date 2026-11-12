@@ -1,0 +1,44 @@
+=====================================================
+[sat_solver.pl]
+===============
+
+?- ?- [sat_solver].
+ERROR: Unknown procedure: (?-)/1
+ERROR:   ?- is the Prolog prompt
+ERROR:   See FAQ at https://www.swi-prolog.org/FAQ/ToplevelMode.html
+ERROR: In:
+ERROR:   [11] throw(error(existence_error(procedure,...),_20152))
+ERROR:    [8] correct_goal((?-[sat_solver]),user,[],_20188) at /usr/lib/swi-prolog/boot/dwim.pl:92
+ERROR: 
+ERROR: Note: some frames are missing due to last-call optimization.
+ERROR: Re-run your program in debug mode (:- debug.) to get more detail.
+?- [sat_solver].
+true.
+
+?- runTests.
+true.
+
+?- isTrue(lit(X, positive)).
+X = true.
+
+?- isTrue(lit(X, negative)).
+X = false.
+
+?- 
+
+=================================================
+
+[boolean_evaluator.pl]
+======================
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- [boolean_evaluator].
+true.
+
+?- runTests.
+true.
+
+?- eval(and(true, or(false, true)), X).
+X = true 
